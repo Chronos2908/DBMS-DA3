@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DA3 DBMS MAIN PAGE</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px ridge black;
+        background-color: aliceblue;
+        text-align: center;
+        font-size: 30px;
+        margin-left: 800px;
+      }
+
+      h1 {
+        background-color: antiquewhite;
+        opacity: 0.6;
+        border-style: outset;
+        border-width: 10px;
+        border-color: black;
+        border-radius: 50px;
+        text-shadow: 2px 2px 4px aliceblue;
+      }
+
+      h2 {
+        font-size: 35px;
+        font-style: normal;
+        font-weight: bold;
+        font-family: sans-serif;
+        background-color: white;
+        border-radius: 50px;
+        width: 180px;
+        color: crimson;
+        margin: 40px;
+        padding: 40px;
+      }
+
+      p {
+        background-color: antiquewhite;
+        border-radius: 50px;
+        padding: 20px;
+        margin: 40px;
+        font-size: 30px;
+      }
+
+      body {
+        background-color: crimson;
+      }
+
+      a {
+        color: crimson;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Cursors</h1>
+    <table>
+      <tr>
+        <th>Sno</th>
+        <th>INDEX LINK</th>
+      </tr>
+      <tr>
+        <th>1</th>
+        <th><a href="#uses">uses of cursors</a></th>
+      </tr>
+      <tr>
+        <th>2</th>
+        <th><a href="#Implicit">Implicit cursor</a></th>
+      </tr>
+      <tr>
+        <th>3</th>
+        <th><a href="#Explicit">Explicit Cursor</a></th>
+      </tr>
+      <tr>
+        <th>4</th>
+        <th><a href="#example">Examples</a></th>
+      </tr>
+      <tr>
+        <th>5</th>
+        <th><a href="#output">Examples output</a></th>
+      </tr>
+    </table>
+    <h2 id="uses">Uses of cursor</h2>
+    <p>
+      The major function of a cursor is to retrieve data, one row at a time,
+      from a result set, unlike the SQL<br />
+      commands which operate on all the rows in the result set at one time.
+      Cursors are used when the user needs to<br />
+      update records in a singleton fashion or in a row by row manner, in a
+      database table.<br />
+      The Data that is stored in the Cursor is called the Active Data Set.
+      Oracle DBMS has another predefined area in<br />
+      the main memory Set, within which the cursors are opened. Hence the size
+      of the cursor is limited by the size of<br />
+      this pre-defined area.
+    </p>
+    <h2 id="Implicit">Implicit Cursor</h2>
+    <p>
+      Implicit cursors are automatically created by Oracle whenever an SQL
+      statement is executed, when there is no<br />
+      explicit cursor for the statement. Programmers cannot control the implicit
+      cursors and the information in it.<br />
+
+      Whenever a DML statement (INSERT, UPDATE and DELETE) is issued, an
+      implicit cursor is associated with this<br />
+      statement. For INSERT operations, the cursor holds the data that needs to
+      be inserted. For UPDATE and DELETE<br />
+      operations, the cursor identifies the rows that would be affected.<br />
+
+      In PL/SQL, you can refer to the most recent implicit cursor as the SQL
+      cursor, which always has attributes such<br />
+      as %FOUND, %ISOPEN, %NOTFOUND, and %ROWCOUNT. The SQL cursor has
+      additional attributes, %BULK_ROWCOUNT and<br />
+      %BULK_EXCEPTIONS, designed for use with the FORALL statement.<br />
+      The following table provides the description of the most used attributes
+      Any SQL cursor attribute will be accessed as sql%attribute_name
+    </p>
+    <table>
+      <tr>
+        <th>Sno</th>
+        <th>Atrribute and Description</th>
+      </tr>
+      <tr>
+        <th>1</th>
+        <th>
+          %FOUND<br />
+
+          Returns TRUE if an INSERT, UPDATE, or DELETE statement affected one or
+          more rows or a SELECT INTO<br />
+          statement returned one or more rows. Otherwise, it returns FALSE.
+        </th>
+      </tr>
+      <tr>
+        <th>2</th>
+        <th>
+          %NOTFOUND<br />
+
+          The logical opposite of %FOUND. It returns TRUE if an INSERT, UPDATE,
+          or DELETE statement affected no<br />
+          rows, or a SELECT INTO statement returned no rows. Otherwise, it
+          returns FALSE.
+        </th>
+      </tr>
+      <tr>
+        <th>3</th>
+        <th>
+          %ISOPEN<br />
+
+          Always returns FALSE for implicit cursors, because Oracle closes the
+          SQL cursor automatically after<br />
+          executing its associated SQL statement.
+        </th>
+      </tr>
+      <tr>
+        <th>4</th>
+        <th>
+          %ROWCOUNT<br />
+
+          Returns the number of rows affected by an INSERT, UPDATE, or DELETE
+          statement, or returned by a SELECT<br />
+          INTO statement.
+        </th>
+      </tr>
+    </table>
+    <h2 id="Explicit">Explicit cursors</h2>
+    <p>
+      Explicit cursors are programmer-defined cursors for gaining more control
+      over the context area. An explicit<br />
+      cursor should be defined in the declaration section of the PL/SQL Block.
+      It is created on a SELECT Statement<br />
+      which returns more than one row.<br />
+
+      The syntax for creating an explicit cursor is −<br />
+
+      CURSOR cursor_name IS select_statement;
+    </p>
+    <p>
+      We need the following steps for working with explicit cursors<br />
+      1.Declaring the cursor for initializing the memory<br />
+      2.Declaring the cursor for initializing the memory<br />
+      3.Fetching the cursor for retrieving the data<br />
+      4.Closing the cursor to release the allocated memory
+    </p>
+    <p>
+      SYNTAX:-<br />
+      DECLARE variables;<br />
+      records;<br />
+      create a cursor;<br />
+      BEGIN<br />
+      OPEN cursor;<br />
+      FETCH cursor;<br />
+      process the records;<br />
+      CLOSE cursor;<br />
+      END;<br />
+    </p>
+    <h2 id="example">Examples</h2>
+    <p>We will use the students table whose image is given below</p>
+    <h3><img src="Capture.PNG" /><</h3>
+    <h2 id="output">Output of the example</h2>
+    <p>This will show the example of rowcount</p>
+    <h3><img src="Capture1.PNG" />The rowcount program</h3>
+    <p>This will be the output</p>
+    <h3><img src="Capture2.PNG" /></h3>
+    <h2><a href="#top">BACK TO TOP</a></h2>
+    <h2><a href="DA-3 DBMS.html">BACK TO MAIN PAGE</a></h2>
+  </body>
+</html>

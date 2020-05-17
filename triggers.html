@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DA3 DBMS MAIN PAGE</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px ridge black;
+            background-color: aliceblue;
+            text-align: center;
+            margin-left: 800px;
+            font-size: 30px;
+        }
+
+        h1 {
+            background-color: antiquewhite;
+            opacity: 0.6;
+            border-style: outset;
+            border-width: 10px;
+            border-color: black;
+            text-shadow: 2px 2px 4px aliceblue;
+        }
+
+        h2 {
+            font-size: 35px;
+            font-style: normal;
+            font-weight: bold;
+            font-family: sans-serif;
+            background-color: white;
+            width: 180px;
+            color: crimson;
+            margin: 40px;
+            padding: 40px;
+        }
+
+        p {
+            background-color: antiquewhite;
+            padding: 20px;
+            margin: 40px;
+            font-size: 30px;
+        }
+
+        ul {
+            background-color: antiquewhite;
+            padding: 20px;
+            margin: 40px;
+            font-size: 30px;
+
+        }
+
+        body {
+            background-color: crimson;
+
+        }
+
+        a {
+            color: crimson
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="top"> Triggers</h1>
+    <table>
+        <tr>
+            <th>Sno</th>
+            <th>INDEX LINKS</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th><a href="#benefits">Benefits of Triggers</a></th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th><a href="#create">Creating Triggers</a></th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <th><a href="#example">Examples</a></th>
+        </tr>
+        <tr>
+            <th>4</th>
+            <th><a href="#trig">Triggering a trigger</a></th>
+        </tr>
+    </table>
+
+    <h2 id=" benefits">Benefits of Triggers</h2>
+    <p>
+        <ul>
+            <li>Generating some derived column values automatically </li>
+            <li>Enforcing referential integrity Event logging and</li>
+            <li>storing information on table</li>
+            <li>access Auditing Synchronous replication of tables</li>
+        </ul>
+    </p>
+    <h2 id="create">
+        Creating Triggers
+    </h2>
+    <p>The syntax is as following:-<br>
+        CREATE [OR REPLACE ] TRIGGER trigger_name<br>
+        {BEFORE | AFTER | INSTEAD OF }<br>
+        {INSERT [OR] | UPDATE [OR] | DELETE}<br>
+        [OF col_name]<br>
+        ON table_name<br>
+        [REFERENCING OLD AS o NEW AS n]<br>
+        [FOR EACH ROW]<br>
+        WHEN (condition)<br>
+        DECLARE<br>
+        Declaration-statements<br>
+        BEGIN<br>
+        Executable-statements<br>
+        EXCEPTION<br>
+        Exception-handling-statements<br>
+        END;<br>
+    </p>
+    <ul>
+        <li>CREATE [OR REPLACE] TRIGGER trigger_name − Creates or replaces an existing trigger with the
+            trigger_name.
+        </li>
+
+        <li>{BEFORE | AFTER | INSTEAD OF} − This specifies when the trigger will be executed. The
+            INSTEAD OF clause
+            is
+            used</li>
+        for creating trigger on a view.
+
+        <li>{INSERT [OR] | UPDATE [OR] | DELETE} − This specifies the DML operation.</li>
+
+        <li>[OF col_name] − This specifies the column name that will be updated.</li>
+
+        <li>[ON table_name] − This specifies the name of the table associated with the trigger.</li>
+
+        <li>[REFERENCING OLD AS o NEW AS n] − This allows you to refer new and old values for various
+            DML
+            statements,
+            such
+            as INSERT, UPDATE, and DELETE.</li>
+        <li>[FOR EACH ROW] − This specifies a row-level trigger, i.e., the trigger will be executed for
+            each row
+            being
+            affected. Otherwise the trigger will execute just once when the SQL statement is executed,
+            which is
+            called a
+            table level trigger.
+        </li>
+        <li>WHEN (condition) − This provides a condition for rows for which the trigger would fire. This
+            clause is
+            valid
+            only for row-level triggers.</li>
+    </ul>
+    <h2 id="example">
+        Example
+    </h2>
+    <p>We will be using the table same as the one used in cursors</p>
+    <h3><img src="Capture.png"></h3>
+    <h2 id="trig">
+        Triggering a trigger
+    </h2>
+    <p>The following program shows how to trigger a trigger</p>
+    <h3><img src="Capture5.PNG"></h3>
+    <p>and this it the output</p>
+    <h3><img src="Capture6.PNG"></h3>
+    <h2><a href="#top">BACK TO TOP</a></h2>
+    <h2><a href="DA-3 DBMS.html">BACK TO MAIN PAGE</h2>
+
+</body>
